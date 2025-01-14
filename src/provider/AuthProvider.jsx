@@ -4,7 +4,7 @@ import app from "../firebase/firebase.config";
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, GoogleAuthProvider, updateProfile, signInWithPopup, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 
-const GlobalContext = createContext();
+export const GlobalContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
 

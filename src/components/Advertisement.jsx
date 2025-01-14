@@ -17,7 +17,6 @@ const Advertisement = () => {
         queryFn: fetchAdvertisements
     });
 
-    console.log(advertisements);
 
     if (isFetching) {
         return <Loading></Loading>
@@ -26,7 +25,7 @@ const Advertisement = () => {
     return (
         <div>
             <h1 className="text-xl md:text-4xl lg:text-6xl font-bold text-blue-800 text-center mb-5">Advertisement</h1>
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 container mx-auto px-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 container mx-auto px-2">
                 {
                     advertisements.map(ad => {
                         return (

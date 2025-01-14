@@ -8,10 +8,10 @@ const MainLayout = () => {
             <header className="py-2">
                 <Navbar></Navbar>
             </header>
-            <main className="min-h-screen bg-slate-200">
+            <main className="min-h-screen bg-slate-200 pb-20">
                 <Outlet></Outlet>
             </main>
-            <footer className="bg-green-300 mt-20">
+            <footer className="bg-green-300">
                 <Footer></Footer>
             </footer>
         </div>

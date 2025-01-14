@@ -1,0 +1,62 @@
+[
+    {
+        "propertyId": "678633ba6f6712223a76d46c",
+        "reviewerName": "John Doe",
+        "reviewerImg": "/assets/reviewers/reviewer1.jpg",
+        "reviewerEmail": "john.doe@example.com",
+        "review": "The apartment was exactly as described, and the location was perfect for my needs.",
+        "propertyTitle": "Modern 3-Bedroom Apartment",
+        "agentName": "Emma Johnson",
+        "time": "2025-01-14T10:15:00"
+    },
+    {
+        "propertyId": "678633ba6f6712223a76d46d",
+        "reviewerName": "Sarah Smith",
+        "reviewerImg": "/assets/reviewers/reviewer2.jpg",
+        "reviewerEmail": "sarah.smith@example.com",
+        "review": "Amazing villa with a breathtaking view. The agent was very helpful throughout the process.",
+        "propertyTitle": "Luxury Beachfront Villa",
+        "agentName": "Michael Brown",
+        "time": "2025-01-13T14:30:00"
+    },
+    {
+        "propertyId": "678633ba6f6712223a76d46e",
+        "reviewerName": "James Lee",
+        "reviewerImg": "/assets/reviewers/reviewer3.jpg",
+        "reviewerEmail": "james.lee@example.com",
+        "review": "Comfortable and cozy home, perfect for families. The agent was professional and friendly.",
+        "propertyTitle": "Cozy Suburban Home",
+        "agentName": "Sophia Martinez",
+        "time": "2025-01-12T09:45:00"
+    },
+    {
+        "propertyId": "678633ba6f6712223a76d46f",
+        "reviewerName": "Emily Davis",
+        "reviewerImg": "/assets/reviewers/reviewer4.jpg",
+        "reviewerEmail": "emily.davis@example.com",
+        "review": "The house was spacious and had all the amenities we needed. Great experience overall!",
+        "propertyTitle": "Spacious Ranch House",
+        "agentName": "James Smith",
+        "time": "2025-01-11T11:20:00"
+    },
+    {
+        "propertyId": "678633ba6f6712223a76d470",
+        "reviewerName": "Michael Brown",
+        "reviewerImg": "/assets/reviewers/reviewer5.jpg",
+        "reviewerEmail": "michael.brown@example.com",
+        "review": "Perfect studio apartment for singles. The agent made the process seamless and stress-free.",
+        "propertyTitle": "Modern Studio Apartment",
+        "agentName": "Olivia Wilson",
+        "time": "2025-01-10T16:00:00"
+    },
+    {
+        "propertyId": "678633ba6f6712223a76d46e",
+        "reviewerName": "Sophia Green",
+        "reviewerImg": "/assets/reviewers/reviewer6.jpg",
+        "reviewerEmail": "sophia.green@example.com",
+        "review": "Beautiful colonial house with great character. The agent was knowledgeable and helpful.",
+        "propertyTitle": "Charming Colonial House",
+        "agentName": "William Davis",
+        "time": "2025-01-09T13:50:00"
+    }
+]

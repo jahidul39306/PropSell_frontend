@@ -28,7 +28,7 @@ const Navbar = () => {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3 text-md">
                         <NavLink to='/' className={({ isActive }) => (isActive ? "text-blue-800 font-bold" : "")}>Home</NavLink>
-                        <NavLink to='/find-tutors' className={({ isActive }) => (isActive ? "text-blue-800 font-bold" : "")}>All properties</NavLink>
+                        <NavLink to='/all-properties' className={({ isActive }) => (isActive ? "text-blue-800 font-bold" : "")}>All properties</NavLink>
                         <NavLink to='/add-tutorials' className={({ isActive }) => (isActive ? "text-blue-800 font-bold" : "")}>Dashboard</NavLink>
                     </ul>
                 </div>
@@ -41,7 +41,7 @@ const Navbar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal text-lg gap-7">
                     <NavLink to='/' className={({ isActive }) => (isActive ? "text-blue-800 font-bold" : "")}>Home</NavLink>
-                    <NavLink to='/find-tutors' className={({ isActive }) => (isActive ? "text-blue-800 font-bold" : "")}>All properties</NavLink>
+                    <NavLink to='/all-properties' className={({ isActive }) => (isActive ? "text-blue-800 font-bold" : "")}>All properties</NavLink>
                     <NavLink to='/add-tutorials' className={({ isActive }) => (isActive ? "text-blue-800 font-bold" : "")}>Dashboard</NavLink>
                 </ul>
             </div>

@@ -8,7 +8,7 @@ const MainLayout = () => {
             <header className="py-2">
                 <Navbar></Navbar>
             </header>
-            <main className="min-h-screen">
+            <main className="min-h-screen bg-slate-200">
                 <Outlet></Outlet>
             </main>
             <footer className="bg-green-300 mt-20">

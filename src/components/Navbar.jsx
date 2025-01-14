@@ -29,7 +29,7 @@ const Navbar = () => {
                 </div>
                 <Link to='/'>
                     <img
-                        className="max-w-40 rounded-lg"
+                        className="max-w-30 md:max-w-40 rounded-lg"
                         src="/public/logo.png" alt="" />
                 </Link>
             </div>

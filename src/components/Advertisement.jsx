@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import Loading from "./Loading";
 import fake_house from '../assets/fake_house.jpg';
+import { Link } from "react-router-dom";
 
 
 const Advertisement = () => {
@@ -49,7 +50,7 @@ const Advertisement = () => {
                                     </div>
 
                                     <div className="card-actions ">
-                                        <button className="btn w-full bg-blue-300">Details</button>
+                                        <Link to={`/property/${ad.propertyId}`} className="btn w-full bg-blue-300">Details</Link>
                                     </div>
                                 </div>
                             </div>

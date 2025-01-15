@@ -3,6 +3,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 import Loading from "../components/Loading";
 import fake_house from '../assets/fake_house.jpg';
 import avatar from "../assets/avatar.jpg";
+import { Link } from "react-router-dom";
 
 
 
@@ -87,7 +88,7 @@ const AllPropertiesPage = () => {
                                     </div>
 
                                     <div className="card-actions ">
-                                        <button className="btn w-full bg-blue-300">Details</button>
+                                        <Link to={`/property/${p._id}`} className="btn w-full bg-blue-300">Details</Link>
                                     </div>
                                 </div>
                             </div>

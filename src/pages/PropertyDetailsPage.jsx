@@ -32,7 +32,7 @@ const PropertyDetailsPage = () => {
         return data;
     };
 
-    const { data: reviews, isFetching: isFetchingReviews } = useQuery({
+    const { data: reviews, isFetching: isFetchingReviews, refetch } = useQuery({
         queryKey: ["reviews", id],
         queryFn: fetchReviews
     });
@@ -43,6 +43,19 @@ const PropertyDetailsPage = () => {
         },
         onSuccess: () => {
             toast.success('Added to wishlist');
+        },
+        onError: () => {
+            toast.error('An error occured');
+        }
+    });
+
+    const reviewMutation = useMutation({
+        mutationFn: async (newReview) => {
+            return await axiosSecure.post('/reviews', newReview)
+        },
+        onSuccess: () => {
+            toast.success('Added review');
+            refetch();
         },
         onError: () => {
             toast.error('An error occured');
@@ -72,7 +85,17 @@ const PropertyDetailsPage = () => {
             showCancelButton: true
         });
         if (text) {
-            Swal.fire(text);
+            const newReview = {
+                propertyId: id,
+                reviewerName: user.displayName,
+                reviewerImg: user.photoURL,
+                reviewerEmail: user.email,
+                review: text,
+                propertyTitle: propertyDetails.propertyTitle,
+                agentName: propertyDetails.agentName,
+                time: new Date()
+            }
+            reviewMutation.mutate(newReview);
         }
     }
 

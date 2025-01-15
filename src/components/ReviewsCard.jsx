@@ -3,7 +3,7 @@ import avatar from '../assets/avatar.jpg';
 
 const ReviewsCard = ({ review }) => {
     return (
-        <div key={review._id} className="flex justify-between bg-white p-2 items-center gap-5 rounded-lg shadow-lg max-w-lg mx-auto">
+        <div key={review._id} className="flex bg-white p-2 items-center gap-5 rounded-lg shadow-lg max-w-lg mx-auto">
             <div className="">
                 <img
                     src={review.reviewerImg || avatar}

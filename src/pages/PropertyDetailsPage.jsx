@@ -1,10 +1,13 @@
 import { useParams } from 'react-router-dom';
 import fake_house from '../assets/fake_house.jpg';
 import useAxiosSecure from '../hooks/useAxiosSecure';
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import Loading from '../components/Loading';
 import ReviewsCard from '../components/ReviewsCard';
 import Swal from 'sweetalert2';
+import { useContext } from 'react';
+import { GlobalContext } from '../provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 
 
@@ -12,6 +15,7 @@ const PropertyDetailsPage = () => {
 
     const { id } = useParams();
     const axiosSecure = useAxiosSecure();
+    const { user } = useContext(GlobalContext);
 
     const fetchDetails = async () => {
         const { data } = await axiosSecure.get(`/property/${id}`);
@@ -33,13 +37,28 @@ const PropertyDetailsPage = () => {
         queryFn: fetchReviews
     });
 
+    const wishListMutation = useMutation({
+        mutationFn: async (newWishList) => {
+            return await axiosSecure.post('/wishlist', newWishList)
+        },
+        onSuccess: () => {
+            toast.success('Added to wishlist');
+        },
+        onError: () => {
+            toast.error('An error occured');
+        }
+    });
+
     if (isFetching || isFetchingReviews) {
         return <Loading></Loading>
     }
 
-
-    const handleWishList = () => {
-
+    const handleWishList = async () => {
+        const wishProperty = {
+            userEmail: user.email,
+            propertyId: id
+        }
+        wishListMutation.mutate(wishProperty);
     }
 
     const handleReview = async () => {

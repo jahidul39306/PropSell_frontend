@@ -12,6 +12,7 @@ import ProfilePage from "../pages/dashboard/ProfilePage";
 import WishlistPage from "../pages/dashboard/WishlistPage";
 import PropertyBoughtPage from "../pages/dashboard/PropertyBoughtPage";
 import MyReviews from "../pages/dashboard/MyReviews";
+import MakeOfferPage from "../pages/dashboard/MakeOfferPage";
 
 const router = createBrowserRouter([
     {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
             {
                 path: 'my-reviews',
                 element: <MyReviews></MyReviews>
+            },
+            {
+                path: 'offer-price/:propertyId',
+                element: <MakeOfferPage></MakeOfferPage>
             },
         ]
     }

@@ -7,7 +7,6 @@ import { useQuery } from '@tanstack/react-query';
 
 const ProfilePage = () => {
     const { user } = useContext(GlobalContext);
-
     const axiosSecure = useAxiosSecure();
 
 
@@ -41,7 +40,7 @@ const ProfilePage = () => {
                 <p>Name: {user.displayName}</p>
                 <p>Email: {user.email}</p>
                 {
-                    (userData?.role && <p>Role: {userData.role}</p>)
+                    (userData.role !== 'user' && <p>Role: {userData.role}</p>)
                 }
 
             </div>

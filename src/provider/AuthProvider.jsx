@@ -52,6 +52,7 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
+
     const globalInfo = {
         createUser,
         user,

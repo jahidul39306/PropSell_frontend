@@ -102,7 +102,7 @@ const WishlistPage = () => {
                                     </div>
 
                                     <div className="card-actions ">
-                                        <Link to={`/property/${w.propertyDetails?._id}`} className="btn w-full bg-blue-300">Make an offer</Link>
+                                        <Link to={`/dashboard/offer-price/${w.propertyDetails?._id}`} className="btn w-full bg-blue-300">Make an offer</Link>
                                         <button onClick={() => handleRemove(w._id)} className="btn w-full bg-rose-500">Remove</button>
                                     </div>
                                 </div>

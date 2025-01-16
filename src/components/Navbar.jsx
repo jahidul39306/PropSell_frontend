@@ -6,6 +6,7 @@ import { RxAvatar } from "react-icons/rx";
 const Navbar = () => {
     const { loading, user, userLogOut } = useContext(GlobalContext);
 
+
     return (
         <div className="navbar container mx-auto">
             <div className="navbar-start">

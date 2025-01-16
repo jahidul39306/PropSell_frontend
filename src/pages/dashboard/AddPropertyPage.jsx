@@ -118,7 +118,7 @@ const AddPropertyPage = () => {
                     {/* agent email */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-black">Buyer email</span>
+                            <span className="label-text text-black">Agent email</span>
                         </label>
                         <input name="agentEmail" type="text" className="input input-bordered" readOnly defaultValue={user.email} />
                     </div>
@@ -126,7 +126,7 @@ const AddPropertyPage = () => {
                     {/* agent name */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text text-black">Buyer name</span>
+                            <span className="label-text text-black">Agent name</span>
                         </label>
                         <input name="agentName" type="text" className="input input-bordered" readOnly defaultValue={user.displayName} />
                     </div>

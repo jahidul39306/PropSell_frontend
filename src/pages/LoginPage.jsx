@@ -39,7 +39,7 @@ const LoginPage = () => {
     const handleGoogleLogIn = async () => {
         try {
             const result = await loginWithGoogle();
-            await axiosPublic.post('/add-user', { email: result.user.email, createdAt: new Date() });
+            await axiosPublic.post('/add-user', { email: result.user.email, createdAt: new Date(), role: 'user', userName: result.user.displayName });
             setUser(result.user);
             toast.success("Successfully logged in");
             navigate(location?.state ? location.state : '/');

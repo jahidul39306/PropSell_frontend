@@ -54,7 +54,7 @@ const RegistrationPage = () => {
         try {
             const userCredential = await createUser(email, password);
             await setUser(userCredential.user);
-            await axiosPublic.post('/add-user', { email: email, createdAt: new Date(), role: 'user' });
+            await axiosPublic.post('/add-user', { email: email, createdAt: new Date(), role: 'user', userName: name });
             await updateUserProfile({ displayName: name, photoURL: photoURL });
             setLoading(false);
             toast.success('Registration Successfull');
@@ -72,7 +72,7 @@ const RegistrationPage = () => {
         try {
             const userCredential = await createUserWithGoogle();
             await setUser(userCredential.user);
-            await axiosPublic.post('/add-user', { email: userCredential.user.email, createdAt: new Date(), role: 'user' });
+            await axiosPublic.post('/add-user', { email: userCredential.user.email, createdAt: new Date(), role: 'user', userName: userCredential.user.displayName });
             toast.success('Registration Successfull');
             navigate('/');
         }

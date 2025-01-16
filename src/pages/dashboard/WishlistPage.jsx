@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { GlobalContext } from "../../provider/AuthProvider";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import Loading from "../../components/Loading";
 import fake_house from '../../assets/fake_house.jpg';
 import avatar from "../../assets/avatar.jpg";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const WishlistPage = () => {
     const axiosSecure = useAxiosSecure();
@@ -17,16 +18,29 @@ const WishlistPage = () => {
         return data;
     };
 
-    const { data: wishlists, isFetching } = useQuery({
+    const { data: wishlists, isFetching, refetch } = useQuery({
         queryKey: ["wishlists", user.email],
         queryFn: () => fetchWishlists()
+    });
+
+    const wishListRemove = useMutation({
+        mutationFn: async (wishlistId) => {
+            return await axiosSecure.delete(`/wishlist/${wishlistId}?email=${user.email}`)
+        },
+        onSuccess: () => {
+            toast.success('Removed from wishlist');
+            refetch();
+        },
+        onError: () => {
+            toast.error('An error occured');
+        }
     });
 
     if (isFetching) {
         return <Loading></Loading>
     }
 
-    const handleRemove = () => {
+    const handleRemove = (id) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -35,11 +49,12 @@ const WishlistPage = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
+                await wishListRemove.mutate(id);
                 Swal.fire({
                     title: "Deleted!",
-                    text: "Your file has been deleted.",
+                    text: "Your wishlist has been deleted.",
                     icon: "success"
                 });
             }
@@ -88,7 +103,7 @@ const WishlistPage = () => {
 
                                     <div className="card-actions ">
                                         <Link to={`/property/${w.propertyDetails?._id}`} className="btn w-full bg-blue-300">Make an offer</Link>
-                                        <button onClick={handleRemove} className="btn w-full bg-rose-500">Remove</button>
+                                        <button onClick={() => handleRemove(w._id)} className="btn w-full bg-rose-500">Remove</button>
                                     </div>
                                 </div>
                             </div>

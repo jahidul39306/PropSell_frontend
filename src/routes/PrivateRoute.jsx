@@ -9,7 +9,6 @@ const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(GlobalContext);
     const location = useLocation();
 
-    console.log("i am called from private route");
     if (loading) {
         return <Loading></Loading>;
     }

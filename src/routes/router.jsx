@@ -13,6 +13,11 @@ import WishlistPage from "../pages/dashboard/WishlistPage";
 import PropertyBoughtPage from "../pages/dashboard/PropertyBoughtPage";
 import MyReviews from "../pages/dashboard/MyReviews";
 import MakeOfferPage from "../pages/dashboard/MakeOfferPage";
+import AgentRoute from "./AgentRoute";
+import AddPropertyPage from "../pages/dashboard/AddPropertyPage";
+import MyAddedPropertiesPage from "../pages/dashboard/MyAddedPropertiesPage";
+import MySoldPropertiesPage from "../pages/dashboard/MySoldPropertiesPage";
+import RequestedPropertiesPage from "../pages/dashboard/RequestedPropertiesPage";
 
 const router = createBrowserRouter([
     {
@@ -66,6 +71,22 @@ const router = createBrowserRouter([
             {
                 path: 'offer-price/:propertyId',
                 element: <MakeOfferPage></MakeOfferPage>
+            },
+            {
+                path: 'add-property',
+                element: <AgentRoute><AddPropertyPage></AddPropertyPage></AgentRoute>
+            },
+            {
+                path: 'my-added-properties',
+                element: <AgentRoute><MyAddedPropertiesPage></MyAddedPropertiesPage></AgentRoute>
+            },
+            {
+                path: 'my-sold-properties',
+                element: <AgentRoute><MySoldPropertiesPage></MySoldPropertiesPage></AgentRoute>
+            },
+            {
+                path: 'requested-properties',
+                element: <AgentRoute><RequestedPropertiesPage></RequestedPropertiesPage></AgentRoute>
             },
         ]
     }

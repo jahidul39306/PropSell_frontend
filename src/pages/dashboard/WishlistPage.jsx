@@ -36,6 +36,7 @@ const WishlistPage = () => {
         }
     });
 
+
     if (isFetching) {
         return <Loading></Loading>
     }

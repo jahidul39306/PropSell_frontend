@@ -24,6 +24,7 @@ const ProfilePage = () => {
         return <Loading></Loading>
     }
 
+  
     return (
         <div className='flex flex-col md:flex-row items-center p-5 gap-10'>
             <div>

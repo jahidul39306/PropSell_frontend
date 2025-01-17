@@ -34,6 +34,7 @@ const PropertyBoughtPage = () => {
                             <div key={w._id} className="card card-compact bg-base-100 shadow-xl">
                                 <figure>
                                     <img
+                                        className="flex-grow h-[200px]"
                                         src={w.propertyImage || fake_house}
                                         onError={(e) => {
                                             e.target.src = fake_house;

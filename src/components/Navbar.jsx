@@ -61,7 +61,7 @@ const Navbar = () => {
                                                 {user.displayName}</p>
                                         </div>
                                     </div>
-                                    <div onClick={() => userLogOut()} className="bg-purple-700 text-white text-xs md:text-base p-1 md:p-2 rounded-md font-bold">Logout</div>
+                                    <div onClick={() => userLogOut()} className="cursor-pointer bg-purple-700 text-white text-xs md:text-base p-1 md:p-2 rounded-md font-bold">Logout</div>
                                 </div>
                                 :
                                 <div className="flex gap-2 md:gap-5 items-center">
@@ -73,7 +73,7 @@ const Navbar = () => {
                                                 {user.displayName}</p>
                                         </div>
                                     </div>
-                                    <div onClick={() => userLogOut()} className="bg-purple-700 text-white text-xs md:text-base p-1 md:p-2 rounded-md font-bold">Logout</div>
+                                    <div onClick={() => userLogOut()} className="cursor-pointer bg-purple-700 text-white text-xs md:text-base p-1 md:p-2 rounded-md font-bold">Logout</div>
                                 </div>
                         )
                             :

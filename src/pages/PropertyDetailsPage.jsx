@@ -23,7 +23,7 @@ const PropertyDetailsPage = () => {
     };
 
     const { data: propertyDetails, isFetching } = useQuery({
-        queryKey: ["propertyDetails"],
+        queryKey: ["propertyDetails", id],
         queryFn: fetchDetails
     });
 

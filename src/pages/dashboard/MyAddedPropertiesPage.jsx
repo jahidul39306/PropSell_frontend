@@ -64,14 +64,14 @@ const MyAddedPropertiesPage = () => {
     }
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 px-2 py-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-2 py-5">
             {
                 myProperties.map(p => {
                     return (
                         <div key={p._id} className="card card-compact bg-base-100 shadow-xl">
                             <figure>
                                 <img
-                                    className="flex-grow"
+                                    className="flex-grow h-[200px]"
                                     src={p.propertyImage || fake_house}
                                     onError={(e) => {
                                         e.target.src = fake_house;
@@ -104,7 +104,7 @@ const MyAddedPropertiesPage = () => {
                                 </div>
 
                                 <div className="card-actions ">
-                                    <Link to={`/property/${p._id}`} className="btn w-full bg-blue-300">Update</Link>
+                                    {p.verificationStatus !== "rejected" && <Link to={`/dashboard/update-property/${p._id}`} className="btn w-full bg-blue-300">Update</Link>}
                                     <button onClick={() => removeMyProperty(p._id)} className="btn w-full bg-rose-500">Remove</button>
                                 </div>
                             </div>

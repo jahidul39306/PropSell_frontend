@@ -19,6 +19,7 @@ import MyAddedPropertiesPage from "../pages/dashboard/MyAddedPropertiesPage";
 import MySoldPropertiesPage from "../pages/dashboard/MySoldPropertiesPage";
 import RequestedPropertiesPage from "../pages/dashboard/RequestedPropertiesPage";
 import UpdatePropertyPage from "../pages/dashboard/UpdatePropertyPage";
+import PaymentPage from "../pages/dashboard/PaymentPage";
 
 const router = createBrowserRouter([
     {
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
             {
                 path: 'update-property/:propertyId',
                 element: <AgentRoute><UpdatePropertyPage></UpdatePropertyPage></AgentRoute>
+            },
+            {
+                path: 'payment/:offerId',
+                element: <PaymentPage></PaymentPage>
             },
         ]
     }

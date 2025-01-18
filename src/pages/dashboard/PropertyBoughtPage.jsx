@@ -5,6 +5,7 @@ import avatar from "../../assets/avatar.jpg";
 import { useContext } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { GlobalContext } from "../../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const PropertyBoughtPage = () => {
 
@@ -66,7 +67,8 @@ const PropertyBoughtPage = () => {
                                         </div>
                                     </div>
                                     <div className="card-actions ">
-                                        {w.offerStatus === "accepted" && <button className="btn w-full bg-blue-300">Pay</button>}
+                                        {w.offerStatus === "accepted" && <Link to={`/dashboard/payment/${w._id}`} state={{ price: w.offeredPrice, propertyId: w.propertyId }} className="btn w-full bg-blue-300">Pay</Link>}
+                                        {w.offerStatus === "bought" && <p className="text-green-500 font-bold">Transaction Id: {w.transactionId}</p>}
                                     </div>
                                 </div>
                             </div>

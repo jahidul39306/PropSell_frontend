@@ -104,7 +104,10 @@ const WishlistPage = () => {
                                     </div>
 
                                     <div className="card-actions ">
-                                        <Link to={`/dashboard/offer-price/${w.propertyDetails?._id}`} className="btn w-full bg-blue-300">Make an offer</Link>
+                                        {
+                                            w.propertyDetails.verificationStatus === 'sold' ? <button onClick={() => toast.warning('Property already sold, you can not make an offer.')} className="btn w-full bg-yellow-500">Property sold</button> :
+                                                <Link to={`/dashboard/offer-price/${w.propertyDetails?._id}`} className="btn w-full bg-blue-300">Make an offer</Link>
+                                        }
                                         <button onClick={() => handleRemove(w._id)} className="btn w-full bg-rose-500">Remove</button>
                                     </div>
                                 </div>

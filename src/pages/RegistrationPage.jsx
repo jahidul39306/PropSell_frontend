@@ -54,7 +54,7 @@ const RegistrationPage = () => {
         try {
             const userCredential = await createUser(email, password);
             await setUser(userCredential.user);
-            await axiosPublic.post('/add-user', { email: email, createdAt: new Date(), role: 'user', userName: name });
+            await axiosPublic.post('/add-user', { email: email, createdAt: new Date(), role: 'user', userName: name, firebase_uid: userCredential.user.uid });
             await updateUserProfile({ displayName: name, photoURL: photoURL });
             setLoading(false);
             toast.success('Registration Successfull');
@@ -72,7 +72,7 @@ const RegistrationPage = () => {
         try {
             const userCredential = await createUserWithGoogle();
             await setUser(userCredential.user);
-            await axiosPublic.post('/add-user', { email: userCredential.user.email, createdAt: new Date(), role: 'user', userName: userCredential.user.displayName });
+            await axiosPublic.post('/add-user', { email: userCredential.user.email, createdAt: new Date(), role: 'user', userName: userCredential.user.displayName, firebase_uid: userCredential.user.uid });
             toast.success('Registration Successfull');
             navigate('/');
         }
@@ -92,7 +92,7 @@ const RegistrationPage = () => {
                         <label className="label">
                             <span className="label-text text-black">Name</span>
                         </label>
-                        <input name="name" type="text" placeholder="name" className="input input-bordered" required/>
+                        <input name="name" type="text" placeholder="name" className="input input-bordered" required />
                     </div>
 
                     {/* photoURL */}
@@ -108,7 +108,7 @@ const RegistrationPage = () => {
                         <label className="label">
                             <span className="label-text text-black">Email</span>
                         </label>
-                        <input name="email" type="email" placeholder="email" className="input input-bordered" required/>
+                        <input name="email" type="email" placeholder="email" className="input input-bordered" required />
                     </div>
 
                     {/* password */}
@@ -116,7 +116,7 @@ const RegistrationPage = () => {
                         <label className="label">
                             <span className="label-text text-black">Password</span>
                         </label>
-                        <input name="password" type={showPass ? "text" : "password"} placeholder="password" className="input input-bordered" required/>
+                        <input name="password" type={showPass ? "text" : "password"} placeholder="password" className="input input-bordered" required />
                         <div
                             onClick={() => setShowPass(!showPass)}
                             className="text-lg absolute bottom-3 right-5">

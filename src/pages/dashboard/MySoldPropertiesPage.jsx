@@ -20,7 +20,7 @@ const MySoldPropertiesPage = () => {
     });
 
     useEffect(() => {
-        setTotal(soldProperties.reduce((total, item) => total + item.offeredPrice, 0))
+        setTotal(soldProperties?.reduce((total, item) => total + item.offeredPrice, 0))
     }, [soldProperties]);
 
     if (isFetching) {

@@ -20,6 +20,10 @@ import MySoldPropertiesPage from "../pages/dashboard/MySoldPropertiesPage";
 import RequestedPropertiesPage from "../pages/dashboard/RequestedPropertiesPage";
 import UpdatePropertyPage from "../pages/dashboard/UpdatePropertyPage";
 import PaymentPage from "../pages/dashboard/PaymentPage";
+import AdminRoute from "./AdminRoute";
+import ManagePropertiesPage from "../pages/dashboard/ManagePropertiesPage";
+import ManageUsersPage from "../pages/dashboard/ManageUsersPage";
+import ManageReviewsPage from "../pages/dashboard/ManageReviewsPage";
 
 const router = createBrowserRouter([
     {
@@ -97,6 +101,18 @@ const router = createBrowserRouter([
             {
                 path: 'payment/:offerId',
                 element: <PaymentPage></PaymentPage>
+            },
+            {
+                path: 'manage-properties',
+                element: <AdminRoute><ManagePropertiesPage></ManagePropertiesPage></AdminRoute>
+            },
+            {
+                path: 'manage-users',
+                element: <AdminRoute><ManageUsersPage></ManageUsersPage></AdminRoute>
+            },
+            {
+                path: 'manage-reviews',
+                element: <AdminRoute><ManageReviewsPage></ManageReviewsPage></AdminRoute>
             },
         ]
     }

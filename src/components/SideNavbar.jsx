@@ -22,6 +22,13 @@ const SideNavbar = () => {
                 <NavLink to='/dashboard/my-sold-properties' className={({ isActive }) => (isActive ? "bg-purple-800 p-2" : "")}>My sold properties</NavLink>
                 <NavLink to='/dashboard/requested-properties' className={({ isActive }) => (isActive ? "bg-purple-800 p-2" : "")}>Requested properties</NavLink>
             </div>}
+
+            {isAgent === 'admin' && <div className="flex flex-col space-y-5">
+                <NavLink to='/dashboard/profile' className={({ isActive }) => (isActive ? "bg-purple-800 p-2" : "")}>My profile</NavLink>
+                <NavLink to='/dashboard/manage-properties' className={({ isActive }) => (isActive ? "bg-purple-800 p-2" : "")}>Manage properties</NavLink>
+                <NavLink to='/dashboard/manage-users' className={({ isActive }) => (isActive ? "bg-purple-800 p-2" : "")}>Manage users</NavLink>
+                <NavLink to='/dashboard/manage-reviews' className={({ isActive }) => (isActive ? "bg-purple-800 p-2" : "")}>Manage reviews</NavLink>
+            </div>}
         </div>
     );
 };

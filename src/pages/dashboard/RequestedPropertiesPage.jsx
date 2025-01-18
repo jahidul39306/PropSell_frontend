@@ -98,7 +98,7 @@ const RequestedPropertiesPage = () => {
                 {/* head */}
                 <thead>
                     <tr>
-                        <th></th>
+                        <th>#</th>
                         <th>Property title</th>
                         <th>Property location</th>
                         <th>Buyer email</th>

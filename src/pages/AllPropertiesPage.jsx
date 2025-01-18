@@ -4,54 +4,78 @@ import Loading from "../components/Loading";
 import fake_house from '../assets/fake_house.jpg';
 import avatar from "../assets/avatar.jpg";
 import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
 
 
 
 const AllPropertiesPage = () => {
     const axiosSecure = useAxiosSecure();
     const queryClient = useQueryClient();
+    const [sortByPrice, setSortByPrice] = useState(false);
+    const searchRef = useRef(" ");
 
 
-    const fetchProperties = async (locat) => {
-        if (locat) {
-            const { data } = await axiosSecure.get(`/properties?location=${locat}`);
+    const fetchProperties = async (sortByPrice = false) => {
+        if (searchRef.current?.value) {
+            const { data } = await axiosSecure.get(`/properties?location=${searchRef.current?.value}&sort=${sortByPrice}`);
             return data;
         }
-        const { data } = await axiosSecure.get('/properties');
+        const { data } = await axiosSecure.get(`/properties?sort=${sortByPrice}`);
         return data;
     };
 
     const { data: properties, isFetching } = useQuery({
         queryKey: ["properties"],
-        queryFn: () => fetchProperties()
+        queryFn: () => fetchProperties(false),
     });
 
-    if (isFetching) {
-        return <Loading></Loading>
-    }
-
-    const handleSearch = async (e) => {
+    const handleSearch = async () => {
         try {
-            const data = await fetchProperties(e.target.value);
+            const data = await fetchProperties(sortByPrice);
             queryClient.setQueryData(["properties"], data);
         }
         catch (error) {
             console.error("Error fetching search results:", error);
         }
     }
+    const handleSort = async () => {
+        try {
+            if (sortByPrice) {
+                const data = await fetchProperties(false);
+                queryClient.setQueryData(["properties"], data);
+            }
+            else {
+                const data = await fetchProperties(true);
+                queryClient.setQueryData(["properties"], data);
+            }
+            setSortByPrice(!sortByPrice);
+        }
+        catch (error) {
+            console.error("Error fetching search results:", error);
+        }
+    }
+
+    if (isFetching) {
+        return <Loading></Loading>
+    }
+
+
 
     return (
         <div className="container mx-auto px-2 ">
-            <div className="text-center py-5">
+            <div className="py-5 flex flex-col md:flex-row gap-5 justify-center">
                 <input
                     onChange={handleSearch}
+                    ref={searchRef}
                     type="text"
                     placeholder="Search"
                     className="input input-bordered input-info w-full max-w-xs" />
+                {sortByPrice || <button onClick={handleSort} className="btn bg-purple-500">Sort by price</button>}
+                {sortByPrice && <button onClick={handleSort} className="btn bg-purple-500">Sort by default</button>}
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
                 {
-                    properties.map(p => {
+                    properties?.map(p => {
                         return (
                             <div key={p._id} className="card card-compact bg-base-100 shadow-xl">
                                 <figure>

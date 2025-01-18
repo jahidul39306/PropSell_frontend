@@ -69,7 +69,41 @@ const ManageUsersPage = () => {
                 });
             }
         });
+    }
 
+    const markAsFraud = useMutation({
+        mutationFn: async (email) => {
+            return axiosSecure.patch(`/mark-as-fraud/${email}`)
+        },
+        onSuccess: () => {
+            toast.success('User marked as fraud');
+            refetch();
+        },
+        onError: () => {
+            toast.error('An error occured');
+        }
+
+    })
+
+    const handleFraud = (userEmail) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "If you mark user as fraud, all the added properties of this user will be deleted.",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Mark as fraud"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                markAsFraud.mutate(userEmail)
+                Swal.fire({
+                    title: "Fraud!",
+                    text: "User marked as fraud.",
+                    icon: "success"
+                });
+            }
+        });
     }
 
 
@@ -98,14 +132,22 @@ const ManageUsersPage = () => {
                                     <td>{op.userName}</td>
                                     <td>{op.email}</td>
                                     <td>{op.role}</td>
-                                    <td>{op?.fraud !== 'fraud' ?
+                                    <td>
+
                                         <div className="flex items-center gap-2">
-                                            <button onClick={() => handleChangeRole(op._id, 'admin')} className="btn bg-green-500 p-1">Make admin</button>
-                                            <button onClick={() => handleChangeRole(op._id, 'agent')} className="btn bg-green-500 p-1">Make agent</button>
-                                            <button className="btn bg-yellow-500 p-1">Mark as fraud</button>
+                                            {op?.fraud !== 'yes' ?
+                                                <div>
+                                                    <button onClick={() => handleChangeRole(op._id, 'admin')} className="btn bg-green-500 p-1">Make admin</button>
+                                                    <button onClick={() => handleChangeRole(op._id, 'agent')} className="btn bg-green-500 p-1">Make agent</button>
+                                                </div>
+                                                :
+                                                <p className="text-red-500 font-semibold">Fraud</p>}
+                                            {op.role === "agent" && <button onClick={() => handleFraud(op.email)} className="btn bg-yellow-500 p-1">Mark as fraud</button>}
                                             <button onClick={() => handleDelete(op.firebase_uid)} className="btn bg-rose-500 p-1">Delete</button>
-                                        </div> :
-                                        op?.fraud}</td>
+                                        </div>
+
+
+                                    </td>
                                 </tr>
                             )
                         })

@@ -4,7 +4,8 @@ import { GlobalContext } from "../../provider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import Loading from "../../components/Loading";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -16,6 +17,16 @@ const AddPropertyPage = () => {
     const axiosPublic = useAxiosPublic();
     const { user } = useContext(GlobalContext);
     const navigate = useNavigate();
+
+    const fetchUser = async () => {
+        const { data } = await axiosSecure.get(`/user/${user.email}`);
+        return data;
+    }
+
+    const { data: userInfo, isFetching } = useQuery({
+        queryKey: ["userInfo", user.email],
+        queryFn: () => fetchUser()
+    });
 
     const propertyMutation = useMutation({
         mutationFn: async (newProperty) => {
@@ -30,6 +41,19 @@ const AddPropertyPage = () => {
             toast.error('An error occured');
         }
     });
+
+    if (isFetching) {
+        return <Loading></Loading>
+    }
+
+    if (userInfo?.fraud === 'yes') {
+        return (
+            <div className="flex min-h-screen justify-center items-center text-base md:text-xl text-red-500 font-semibold text-center">
+                You can not add property.<br></br>
+                You are marked as fraud, please contact admin.
+            </div>
+        );
+    }
 
     const handleAddProperty = async (e) => {
         e.preventDefault();

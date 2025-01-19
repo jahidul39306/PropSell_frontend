@@ -48,7 +48,7 @@ const cardsContent = [
 
 const Slider = () => {
     return (
-        <div className='container mx-auto'>
+        <div className='container mx-auto px-2'>
             <h1 className="text-xl md:text-4xl lg:text-6xl font-bold text-blue-800 text-center mb-5">What our agents have to say</h1>
             <Swiper navigation={true} modules={[Navigation]} className="" loop={true} slidesPerView={1}>
                 {

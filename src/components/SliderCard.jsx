@@ -24,8 +24,7 @@ const SliderCard = ({ content }) => {
                 <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
                     {content.title}
                 </h2>
-                <p className="text-lg">{content.description}</p>
-                <p className="text-lg text-gray-700 mb-2">{content.userName}</p>
+                <p className="text-sm md:text-lg">{content.description}</p>
             </div>
         </div>
     );

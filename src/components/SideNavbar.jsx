@@ -28,6 +28,7 @@ const SideNavbar = () => {
                 <NavLink to='/dashboard/manage-properties' className={({ isActive }) => (isActive ? "bg-purple-800 p-2" : "")}>Manage properties</NavLink>
                 <NavLink to='/dashboard/manage-users' className={({ isActive }) => (isActive ? "bg-purple-800 p-2" : "")}>Manage users</NavLink>
                 <NavLink to='/dashboard/manage-reviews' className={({ isActive }) => (isActive ? "bg-purple-800 p-2" : "")}>Manage reviews</NavLink>
+                <NavLink to='/dashboard/advertise-property' className={({ isActive }) => (isActive ? "bg-purple-800 p-2" : "")}>Advertise property</NavLink>
             </div>}
         </div>
     );

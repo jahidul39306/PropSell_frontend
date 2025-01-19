@@ -9,7 +9,7 @@ const Advertisement = () => {
     const axiosPublic = useAxiosPublic();
 
     const fetchAdvertisements = async () => {
-        const { data } = await axiosPublic.get('/advertisements');
+        const { data } = await axiosPublic.get('/advertise-property');
         return data;
     }
 
@@ -33,6 +33,7 @@ const Advertisement = () => {
                             <div key={ad._id} className="card card-compact bg-base-100 shadow-xl">
                                 <figure>
                                     <img
+                                        className="flex-grow h-[200px]"
                                         src={ad.propertyImage || fake_house}
                                         onError={(e) => {
                                             e.target.src = fake_house;
@@ -50,7 +51,7 @@ const Advertisement = () => {
                                     </div>
 
                                     <div className="card-actions ">
-                                        <Link to={`/property/${ad.propertyId}`} className="btn w-full bg-blue-300">Details</Link>
+                                        <Link to={`/property/${ad._id}`} className="btn w-full bg-blue-300">Details</Link>
                                     </div>
                                 </div>
                             </div>

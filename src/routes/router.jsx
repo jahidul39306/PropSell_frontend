@@ -24,6 +24,7 @@ import AdminRoute from "./AdminRoute";
 import ManagePropertiesPage from "../pages/dashboard/ManagePropertiesPage";
 import ManageUsersPage from "../pages/dashboard/ManageUsersPage";
 import ManageReviewsPage from "../pages/dashboard/ManageReviewsPage";
+import AdvertisePropertyPage from "../pages/dashboard/AdvertisePropertyPage";
 
 const router = createBrowserRouter([
     {
@@ -114,6 +115,10 @@ const router = createBrowserRouter([
                 path: 'manage-reviews',
                 element: <AdminRoute><ManageReviewsPage></ManageReviewsPage></AdminRoute>
             },
+            {
+                path: 'advertise-property',
+                element: <AdminRoute><AdvertisePropertyPage></AdvertisePropertyPage></AdminRoute>
+            }
         ]
     }
 ])

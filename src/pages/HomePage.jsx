@@ -1,6 +1,7 @@
 import Advertisement from "../components/Advertisement";
 import Banner from "../components/Banner";
 import Reviews from "../components/Reviews";
+import Slider from "../components/Slider";
 
 
 
@@ -11,6 +12,7 @@ const HomePage = () => {
             <Banner></Banner>
             <Advertisement></Advertisement>
             <Reviews></Reviews>
+            <Slider></Slider>
         </div>
     );
 };

@@ -127,7 +127,7 @@ const ManageUsersPage = () => {
                     {
                         users.map((op, idx) => {
                             return (
-                                <tr key={op._id}>
+                                <tr key={op._id} className={`${op?.fraud === 'yes' ? 'bg-rose-200' : ''}`}>
                                     <th>{idx + 1}</th>
                                     <td>{op.userName}</td>
                                     <td>{op.email}</td>
@@ -141,7 +141,7 @@ const ManageUsersPage = () => {
                                                     <button onClick={() => handleChangeRole(op._id, 'agent')} className="btn bg-green-500 p-1">Make agent</button>
                                                 </div>
                                                 :
-                                                <p className="text-red-500 font-semibold">Fraud</p>}
+                                                <p className="text-red-700 font-semibold">Fraud</p>}
                                             {op.role === "agent" && <button onClick={() => handleFraud(op.email)} className="btn bg-yellow-500 p-1">Mark as fraud</button>}
                                             <button onClick={() => handleDelete(op.firebase_uid)} className="btn bg-rose-500 p-1">Delete</button>
                                         </div>

@@ -104,7 +104,12 @@ const MyAddedPropertiesPage = () => {
                                 </div>
 
                                 <div className="card-actions ">
-                                    {p.verificationStatus !== "rejected" && <Link to={`/dashboard/update-property/${p._id}`} className="btn w-full bg-blue-300">Update</Link>}
+                                    {
+                                        p.verificationStatus === "sold" ?
+                                            <button onClick={() => toast.warning('Property already sold, you can not update the property.')} className="btn w-full bg-yellow-500">Property sold</button>
+                                            :
+                                            p.verificationStatus !== "rejected" && <Link to={`/dashboard/update-property/${p._id}`} className="btn w-full bg-blue-300">Update</Link>
+                                    }
                                     <button onClick={() => removeMyProperty(p._id)} className="btn w-full bg-rose-500">Remove</button>
                                 </div>
                             </div>

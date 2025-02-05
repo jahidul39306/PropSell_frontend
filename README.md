@@ -1,6 +1,6 @@
 # 🏡 PropSell
 
-![PropSell Screenshot](https://via.placeholder.com/1000x500?text=PropSell+Screenshot) <!-- Replace with an actual screenshot -->
+![PropSell Screenshot](https://i.ibb.co.com/M51Ryv0c/Screenshot-From-2025-02-05-13-43-52.png) <!-- Replace with an actual screenshot -->
 
 ## 📌 Project Overview
 

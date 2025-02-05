@@ -72,7 +72,7 @@ Follow these steps to run the project locally:
 
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/yourusername/propsell.git
+git clone https://github.com/jahidul39306/propsell.git
 cd propsell
 ```
 

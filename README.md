@@ -72,8 +72,8 @@ Follow these steps to run the project locally:
 
 ### **1️⃣ Clone the Repository**
 ```sh
-git clone https://github.com/jahidul39306/propsell.git
-cd propsell
+git clone https://github.com/jahidul39306/PropSell_frontend.git
+cd PropSell_frontend
 ```
 
 ### **2️⃣ Install Dependencies**
@@ -85,7 +85,14 @@ npm install
 Create a `.env` file in the root directory and add your Firebase and Stripe API keys.
 
 ```env
-VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_apiKey=YOUR_API_KEY
+VITE_authDomain=YOUR_AUTH_DOMAIN
+VITE_projectId=YOUR_PROJECT_ID
+VITE_storageBucket=YOUR_STORAGE_BUCKET
+VITE_messagingSenderId=YOUR_MESSAGING_SENDER_ID
+VITE_appId=YOUR_APP_ID
+VITE_IMAGE_HOSTING_KEY=YOUR_IMAGE_HOSTING_KEY
+VITE_Payment_Gateway_PK=YOUR_PAYMENT_GATEWAY_PK
 VITE_STRIPE_PUBLIC_KEY=your_stripe_public_key
 ```
 
@@ -116,7 +123,7 @@ You can use the following admin credentials to explore the admin panel:
 
 ## 🤝 Contributors
 
-- **Your Name** – [GitHub Profile](https://github.com/yourusername)
+- **Jahidul Islam Noor** – [GitHub Profile](https://github.com/jahidul39306)
 - Contributions welcome! Feel free to fork and submit pull requests.
 
 ---
